@@ -7,7 +7,8 @@ class MetaInfo extends StatelessWidget {
   const MetaInfo({super.key});
 
   void launchGithubLink(VoidCallback errorCallback) async {
-    final uri = Uri.parse('');
+    final uri =
+        Uri.parse('https://github.com/kaushik-sharma/password-generator');
     if (!(await url_launcher.canLaunchUrl(uri))) {
       errorCallback();
       return;
