@@ -23,7 +23,7 @@ ThemeData buildThemeData() {
       checkColor: MaterialStateProperty.all<Color>(
         kBackgroundColor1,
       ),
-      shape: RoundedRectangleBorder(),
+      shape: const RoundedRectangleBorder(),
     ),
     snackBarTheme: const SnackBarThemeData(
       behavior: SnackBarBehavior.floating,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:password_generator/pages/home/components/generate_password_button.dart';
 import 'package:password_generator/pages/home/components/generated_password_card.dart';
+import 'package:password_generator/pages/home/components/meta_info.dart';
 import 'package:password_generator/pages/home/components/password_length.dart';
 import 'package:password_generator/pages/home/components/password_length_slider.dart';
 import 'package:password_generator/pages/home/components/password_preference_menu.dart';
@@ -57,13 +58,7 @@ class HomePage extends StatelessWidget {
           const Positioned(
             right: 10.0,
             bottom: 10.0,
-            child: Text(
-              'Version 1.0.0',
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 18.0,
-              ),
-            ),
+            child: MetaInfo(),
           ),
         ],
       ),

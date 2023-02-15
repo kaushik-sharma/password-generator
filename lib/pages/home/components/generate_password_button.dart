@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:password_generator/models/password_model.dart';
+import 'package:password_generator/pages/home/components/snack_bar.dart';
 import 'package:password_generator/utils/color_palette.dart';
 import 'package:provider/provider.dart';
 
@@ -40,22 +41,9 @@ class _GeneratePasswordButtonState extends State<GeneratePasswordButton> {
 
   void _generatePassword() {
     if (_countSelectedPrefs() < 2) {
-      ScaffoldMessenger.of(context).clearSnackBars();
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-            'Include at least two preference options.',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16.0,
-            ),
-          ),
-          duration: Duration(seconds: 5),
-          backgroundColor: Colors.red,
-          padding: EdgeInsets.all(20.0),
-          width: 400.0,
-        ),
+      buildSnackBar(
+        context: context,
+        message: 'Include at least two preference options.',
       );
       return;
     }
