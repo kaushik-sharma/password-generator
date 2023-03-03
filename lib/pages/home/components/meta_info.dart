@@ -6,7 +6,7 @@ import 'package:url_launcher/url_launcher.dart' as url_launcher;
 class MetaInfo extends StatelessWidget {
   const MetaInfo({super.key});
 
-  void launchGithubLink(VoidCallback errorCallback) async {
+  Future<void> launchGithubLink(VoidCallback errorCallback) async {
     final uri =
         Uri.parse('https://github.com/kaushik-sharma/password-generator');
     if (!(await url_launcher.canLaunchUrl(uri))) {
@@ -16,7 +16,7 @@ class MetaInfo extends StatelessWidget {
     await url_launcher.launchUrl(uri);
   }
 
-  void Function() showErrorMessage(BuildContext context) {
+  VoidCallback showErrorMessage(BuildContext context) {
     return () => buildSnackBar(
           context: context,
           message: 'Failed to launch URL. Please retry.',
@@ -29,7 +29,7 @@ class MetaInfo extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         TextButton.icon(
-          onPressed: () => launchGithubLink(
+          onPressed: () async => await launchGithubLink(
             showErrorMessage(context),
           ),
           icon: const Icon(
